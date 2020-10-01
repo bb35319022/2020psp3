@@ -13,7 +13,7 @@ l.5 標準出力に"Hello World"と出力する。
 ## 出力結果
 
 > ./k00
-> Hello World
+> Hello World!
 
 ## 修正履歴
 

@@ -40,7 +40,7 @@ typedef struct {
     [入力]  
     - Node* pList: リストの先頭アドレス
     - int ID: 検索する市町村のID 
-    
+  
     [出力]  
     - return値: IDが合致した場所(先頭を0とする)。IDが一致するデータがない場合は-1。  
     - City* pCity: IDが合致した市町村のデータを入れる

@@ -10,6 +10,26 @@ char StrKey[] = "wind";
 char* ForceSearch(char text[], char key[])
 {
     //  ここを実装する
+    char text_len = length(text);
+    char key_len = length(key);
+
+    int i = 0;
+    int j = 0;
+        while(i <= text_len && j < key_len){
+             if(text[i + j] == key[j]){
+                 i++;
+                 j++; 
+            }else{
+                 i = i - j + 1;
+                 j = 0;
+             }
+         }
+
+    return 0;
+   
+   
+
+
 
 }
 

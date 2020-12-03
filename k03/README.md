@@ -1,5 +1,5 @@
 # 課題3 レポート
-学生番号　氏名
+35319022 小池真白
 
 
 ## 課題  
@@ -36,13 +36,40 @@
 
 ## ソースコードの説明
 
+L14~18:int型でそれぞれ必要な値を定義する
+L19:findを0で定義する
+L21:for文でtextを1文字ずつ追っていく
+L22:for文でkeyを1文字ずつ追っていく
+L23:if文で文字列を照合する
+L24:if文でposとkey_len-1を照合
+L25:find=1としbreak
+L34:if文でfind==1の時break
+L39:if文でposとkey_len-1を照合
+L40:text+startを返す
+L50~56:int型でそれぞれ必要な値を定義する
+L57:find=0を定義
+L59~62:for文でindexがALPHABET_LEN 255 より小さい間、table[index] = key_lenを繰り返す
+L64~67:for文でkey_indexがkey_lenより小さい間、table[(int)key[key_index]] = key_len -1 - key_indexを繰り返す
+L69:indexにkey_len-1を代入
+L70~97:indexがtext_lenより小さい間以下の処理をくり返す
+L72:index_bfにindexを代入
+L73:for文でkey_index = key_len - 1から key_index が0より大きい間以下の処理を続ける
+L75~77:if文でtext[index] == key[key_index]を照合し一致したときindexにindex - 1を代入
+L78:if文でkey_indexが0の時、find=1とし、break
+L83:else文で index に index + table[(int)text[index]]を代入
+L84:if文でindexがindex_bf以下の時indexにindex_bf + 1を代入
+L93:if文でfindが1の時break
+L98:if文でkey_indexが0と一致したときtext + indexを返す
+L101:else文でNULLを返す
+
 
 
 ## 出力結果
 
 ```
-
+Force Search. Find keyword at:wind in my hair.
+BM Search. Find keyword at: wind in my hair.
 ```
-
 ## 修正履歴
+L100:return値をtext + index + 1;に修正
 

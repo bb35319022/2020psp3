@@ -71,4 +71,5 @@ Force Search. Find keyword at:wind in my hair.
 BM Search. Find keyword at: wind in my hair.
 ```
 ## 修正履歴
+L100:return値をtext + index + 1;に修正
 

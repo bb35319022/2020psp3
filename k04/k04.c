@@ -79,14 +79,68 @@ int LoadData(City arrayCity[])
 void BubbleSort(City arrayCity[], int size)
 {
     //  ここを実装する
+    int cnt;
+    
+    int i, j;
+    City temp;
 
+    while(cnt!=0){
+        cnt = 0;
+
+        for(i = 0; i < size -1; i++){
+
+            if(arrayCity[i] > arrayCity[j]){
+
+                temp = arrayCity[j-1];
+                arrayCity[j-1] = arrayCity[j];
+                arrayCity[j] = temp;
+                cnt++;
+            }
+        }
+    }
 }
 
 
 void QuickSort(City arrayCity[], int left, int right)
 {
     //  ここを実装する
+    int i;
+    int j;
+    City pivot, temp;
 
+    if(i >= 1){
+        i = left;
+        j = right;
+        pivot = arrayCity[left];
+        
+        while(1){
+            while(arrayCity[i] < pivot){
+                i++;
+            }
+            while(pivot < arrayCity[j]){
+                j--;
+            }
+            if(i >= j){
+                break;
+            }else{
+                temp = arrayCity[left];
+                arrayCity[left] = arrayCity[j];
+                arrayCity[j] = temp;
+            }
+        }
+        temp = pivot;
+        pivot = arrayCity[j];
+        arrayCity[j] = temp;
+
+        if(left < i - 1){
+            QuickSort(arrayCity, left, i - 1);
+        }
+        if(j + 1 < right){
+            QuickSort(arrayCity, j + 1, right);
+        }
+
+
+    }
 }
 
 

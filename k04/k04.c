@@ -133,7 +133,9 @@ void QuickSort(City arrayCity[], int left, int right)
                 arrayCity[j] = temp;
             }
         }
-
+        temp = pivot;
+        pivot = arrayCity[j];
+        arrayCity[j] = temp;
 
         if(left < i - 1){
             QuickSort(arrayCity, i, i - 1);

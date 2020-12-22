@@ -79,52 +79,57 @@ int LoadData(City arrayCity[])
 void BubbleSort(City arrayCity[], int size)
 {
     //  ここを実装する
-    int cnt;
     
-    int i, j;
+    int cnt;
+    int  j;
     City temp;
-
+    
+    cnt = 1;
     while(cnt!=0){
-        cnt = 0;
+        cnt=0;
 
-        for(i = 0; i < size -1; i++){
+        for(j = 0; j < size -1; j++){
+            if(arrayCity[j].total > arrayCity[j+1].total){
 
-            if(arrayCity[i] > arrayCity[j]){
-
-                temp = arrayCity[j-1];
-                arrayCity[j-1] = arrayCity[j];
-                arrayCity[j] = temp;
-                cnt++;
+            temp = arrayCity[j];
+            arrayCity[j] = arrayCity[j+1];
+            arrayCity[j+1] = temp;
+            cnt++;
             }
         }
+        
+    
     }
+    
 }
 
 
 void QuickSort(City arrayCity[], int left, int right)
 {
     //  ここを実装する
+       //  ここを実装する
     int i;
     int j;
     City pivot, temp;
+    
 
     if(i >= 1){
         i = left;
         j = right;
-        pivot = arrayCity[left];
+        pivot = arrayCity[i];
         
         while(1){
-            while(arrayCity[i] < pivot){
+            while(arrayCity[i].seafood < pivot.seafood){
                 i++;
             }
-            while(pivot < arrayCity[j]){
+            while(pivot.seafood < arrayCity[j].seafood){
                 j--;
             }
             if(i >= j){
                 break;
             }else{
-                temp = arrayCity[left];
-                arrayCity[left] = arrayCity[j];
+                temp = arrayCity[i];
+                arrayCity[i] = arrayCity[j];
                 arrayCity[j] = temp;
             }
         }
@@ -133,14 +138,16 @@ void QuickSort(City arrayCity[], int left, int right)
         arrayCity[j] = temp;
 
         if(left < i - 1){
-            QuickSort(arrayCity, left, i - 1);
+            QuickSort(arrayCity, i, i - 1);
         }
         if(j + 1 < right){
-            QuickSort(arrayCity, j + 1, right);
+            QuickSort(arrayCity, j + 1, j);
         }
 
 
     }
+       
+
 }
 
 

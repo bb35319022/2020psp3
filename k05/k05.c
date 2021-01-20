@@ -111,7 +111,7 @@ void DepthFirstSearch(int size, int matrix[size][size], int start)
     int i, j;
 
     for(i=0; i < MAX_STATIONS; i++){
-        visited[i] = UNVISITED;
+        visited[i] = 0;
     }
 
     StackInit();
@@ -122,12 +122,12 @@ void DepthFirstSearch(int size, int matrix[size][size], int start)
     while(StackIsEmpty() == FALSE){
         j = StackPop();
 
-        if(visited[j] == UNVISITED){
-            visited[j] = VISITED;
+        if(visited[j]! == 1){
+            visited[j] = 0;
 
             for(i = 0; i < MAX_STATIONS; i++){
 
-                if(matrix[j][i]!= UNVISITED){
+                if(matrix[j][i]!= 0){
                     StackPush(i);
                 }
             }
@@ -135,7 +135,7 @@ void DepthFirstSearch(int size, int matrix[size][size], int start)
     }
     
     for(i = 0; i < MAX_STATIONS; i++){
-        if(visited[i] == VISITED){
+        if(visited[i] == 1){
             PrintStationName(i);
         }
     }
@@ -209,7 +209,7 @@ void BreadthFirstSearch(int size, int matrix[size][size], int start)
     int i, j;
 
     for(i = 0; i < MAX_STATIONS; i++){
-        visited[i] = UNVISITED;
+        visited[i] = 0;
     }
 
     InitQueue;
@@ -220,10 +220,10 @@ void BreadthFirstSearch(int size, int matrix[size][size], int start)
     while(QueueIsEmpty() == FALSE){
         j = DeQueue();
 
-        if(visited[j] == UNVISITED){
-            visited[j] = VISITED;
+        if(visited[j]! == 1){
+            visited[j] = 1;
             for(i = 0; i < MAX_STATIONS; i++){
-                if(matrix[j][i]!= UNVISITED){
+                if(matrix[j][i]!= 0){
                     EnQueue(i);
                 }
             }
@@ -231,7 +231,7 @@ void BreadthFirstSearch(int size, int matrix[size][size], int start)
     }
 
     for(i = 0; i < MAX_STATIONS; i++){
-        if(visited[i] == VISITED){
+        if(visited[i] == 1){
             PrintStationName(i);
         }
     }

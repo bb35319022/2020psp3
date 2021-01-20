@@ -107,6 +107,39 @@ void DepthFirstSearch(int size, int matrix[size][size], int start)
 {
     //  ここを実装する
 
+    int visited[size];
+    int i, j;
+
+    for(i=0; i < MAX_STATIONS; i++){
+        visited[i] = UNVISITED;
+    }
+
+    StackInit();
+    StackPush(start);
+
+    printf("~深さ優先探索到達駅~\n");
+
+    while(StackIsEmpty() == FALSE){
+        j = StackPop();
+
+        if(visited[j] == UNVISITED){
+            visited[j] = VISITED;
+
+            for(i = 0; i < MAX_STATIONS; i++){
+
+                if(matrix[j][i]!= UNVISITED){
+                    StackPush(i);
+                }
+            }
+        }
+    }
+    
+    for(i = 0; i < MAX_STATIONS; i++){
+        if(visited[i] == VISITED){
+            PrintStationName(i);
+        }
+    }
+
 }
 
 
@@ -172,7 +205,36 @@ int QueueIsEmpty()
 void BreadthFirstSearch(int size, int matrix[size][size], int start)
 {
     //  ここを実装する
+    int visited[size];
+    int i, j;
 
+    for(i = 0; i < MAX_STATIONS; i++){
+        visited[i] = UNVISITED;
+    }
+
+    InitQueue;
+    EnQueue(start);
+
+    printf("~幅優先探索到達駅~\n");
+
+    while(QueueIsEmpty() == FALSE){
+        j = DeQueue();
+
+        if(visited[j] == UNVISITED){
+            visited[j] = VISITED;
+            for(i = 0; i < MAX_STATIONS; i++){
+                if(matrix[j][i]!= UNVISITED){
+                    EnQueue(i);
+                }
+            }
+        }
+    }
+
+    for(i = 0; i < MAX_STATIONS; i++){
+        if(visited[i] == VISITED){
+            PrintStationName(i);
+        }
+    }
 }
 
 
